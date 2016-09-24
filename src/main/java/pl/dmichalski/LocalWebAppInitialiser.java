@@ -20,13 +20,6 @@ public class LocalWebAppInitialiser implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) {
-//        XmlWebApplicationContext appContext = new XmlWebApplicationContext();
-//        appContext.setConfigLocation("/WEB-INF/spring/web-mvc.xml");
-//
-//        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(appContext));
-//        dispatcher.setLoadOnStartup(1);
-//        dispatcher.addMapping("/");
-
 
         WebApplicationContext context = getContext();
         servletContext.addListener(new ContextLoaderListener(context));
