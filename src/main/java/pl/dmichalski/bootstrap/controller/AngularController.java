@@ -9,6 +9,7 @@ import pl.dmichalski.services.BlogPersistService;
 
 /**
  * Created by rdas on 12/09/2016.
+ * https://github.com/fazeelmohamed/Spring4MVCAngularJSExample
  */
 @Controller
 public class AngularController {
