@@ -1,31 +1,21 @@
 'use strict';
 console.log("in Angular Controller js!");
 
-app.controller('IndexPageController', function ($scope) {
+app.controller('IndexPageController', function ($scope, $http) {
     console.log(" in IndexPageController");
-    /* Model */
-    $scope.items = [
-        {desc: 'Go shopping', done: false},
-        {desc: 'Clean my room', done: true},
-        {desc: 'Sleep', done: false}
-    ];
 
-    $scope.newItemDescription = '';
+    // 1. will put greeting to the whole scope.
+    //$scope.greeting = "hello there";
+    //$scope.content = "hello there!!!";
 
-    /* Events */
-    $scope.addItem = function () {
-        $scope.items.push({
-            desc: $scope.newItemDescription,
-            done: false
-        });
-    };
 
-    $scope.removeItem = function (index) {
-        $scope.items.splice(index, 1);
-    };
+    // 2. put greetings to this controller only
+    //this.greeting = {id: 'xxx', content: 'Hello World!'}
 
-    var employee={firstName:'Ran',lastName:'Da',contacts:'Du'}
-    var employeeList = [];
 
-    $scope.employee = employee;
+    //3. get froa service
+    var self = this;
+    $http.get('/resource/').then(function (response) {
+        self.greeting = response.data;
+    });
 });
